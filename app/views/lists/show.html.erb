@@ -1,0 +1,26 @@
+<h1> <%= @list.name %> </h1>
+
+
+<% @list.movies.each do |movie| %>
+<%= movie.title %>
+<% movie.bookmarks.each do |bookmark|%>
+<%= link_to "Delete bookmark", bookmark_path(bookmark), method: :delete %>
+<% end %>
+<% end %>
+
+
+<hr>
+
+
+<h2>Add a bookmark</h2>
+
+ <%= link_to "Add bookmark",  '/lists/:list_id/bookmarks/new' %>
+
+
+<%= simple_form_for [@list, @bookmark] do |f| %>
+<%= f.input :comment, as: :text %>
+<%= f.association :list %>
+<%= f.association :movie %>
+<%= f.button :submit %>
+<% end %>
+
