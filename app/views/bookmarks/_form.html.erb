@@ -1,7 +1,6 @@
-<%= form_for(bookmark) do |f| %>
+<%= simple_form_for [list, bookmark] do |f| %>
 <%= f.input :comment, as: :text %>
 <%= f.association :list %>
 <%= f.association :movie %>
 <%= f.button :submit %>
 <% end %>
-

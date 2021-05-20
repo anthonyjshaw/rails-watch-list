@@ -1,5 +1,6 @@
-class BookmarksController < ApplicationController
+# frozen_string_literal: true
 
+class BookmarksController < ApplicationController
   def new
     @bookmark = Bookmark.new
   end
@@ -27,4 +28,3 @@ class BookmarksController < ApplicationController
     params.require(:bookmark).permit(:comment, :movie_id)
   end
 end
-

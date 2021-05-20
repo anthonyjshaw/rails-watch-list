@@ -1,3 +1,6 @@
+
+
+
 <h1> <%= @list.name %> </h1>
 
 
@@ -16,11 +19,4 @@
 
  <%= link_to "Add bookmark",  '/lists/:list_id/bookmarks/new' %>
 
-
-<%= simple_form_for [@list, @bookmark] do |f| %>
-<%= f.input :comment, as: :text %>
-<%= f.association :list %>
-<%= f.association :movie %>
-<%= f.button :submit %>
-<% end %>
-
+<%= render "/bookmarks/form", list: @list, bookmark: @bookmark %>
