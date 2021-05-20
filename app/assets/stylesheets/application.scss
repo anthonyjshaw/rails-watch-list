@@ -7,6 +7,8 @@
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import 'select2/dist/css/select2';
+
 
 // Your CSS partials
 @import "components/index";
@@ -20,5 +22,16 @@
 
 
 body {
-    margin-bottom:50px;
+
 }
+
+li {
+  list-style: none;
+}
+hr {
+
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 70%);
+  }

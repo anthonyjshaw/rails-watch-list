@@ -1,32 +1,25 @@
-<nav class="navbar navbar-expand-lg navbar-dark nv-black">
-  <%= link_to "MOVIELIST", lists_path, class: "navbar-brand" %>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg  nv-black">
+  <%= link_to "Movie List", root_path, class: "navbar-brand white" %>
+  <button class="navbar-toggler white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <%= link_to "Home", root_path %>
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item mar-right">
+      <li class="nav-item">
+        <%= link_to "Add list", new_list_path, class: 'nav-link'%>
+      </li>
 
-      </li>
       <li class="nav-item">
-         <%= link_to "New list", new_list_path %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "upload picture", "#" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "add movie", "#"  %>
+        <a class="nav-link disabled" href="#">Disabled</a>
       </li>
     </ul>
-    <!-- <form class="form-inline my-2 my-lg-0" method="get" action="/lists/search">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="name" value= "<%= params[:name]%>" >
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form> -->
-  <%= render "shared/search" %>
+    <form class="form-inline my-2 my-lg-0" action="/lists/search" method="get">
+      <input class="form-control mr-sm-2 round-search" value="<%= params[:name]%>" type="search" name="name" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success btn-red my-2 my-sm-0" type="submit">Search</button>
+    </form>
   </div>
-
 </nav>

@@ -6,6 +6,7 @@
 <ul>
   <% @list.movies.each do |movie| %>
   <li>
+  <%= image_tag movie.poster_url, alt: "Movie title: #{movie.title}", class: "bookmark-img" %>
   <%= movie.title %> |
   <% movie.bookmarks.each do |bookmark|%>
   <%= bookmark.comment %> |

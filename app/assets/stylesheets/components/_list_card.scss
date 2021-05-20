@@ -1,11 +1,13 @@
 .list-card {
-  border: red solid 1px;
-
+  border: none;
   text-align: center;
 }
 
-
+.list-card img {
+  border-radius: 0;
+}
 .list-card-body {
   font-family: 'Georgia', serif;
   background: $black;
+
 }

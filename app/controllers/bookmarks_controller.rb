@@ -1,6 +1,5 @@
-# frozen_string_literal: true
-
 class BookmarksController < ApplicationController
+
   def new
     @bookmark = Bookmark.new
   end
@@ -19,7 +18,7 @@ class BookmarksController < ApplicationController
   def destroy
     @bookmark = Bookmark.find(params[:id])
     @bookmark.destroy
-    redirect_to lists_path(@list)
+    redirect_to list_path(@bookmark.list)
   end
 
   private
@@ -28,3 +27,4 @@ class BookmarksController < ApplicationController
     params.require(:bookmark).permit(:comment, :movie_id)
   end
 end
+
