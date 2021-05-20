@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark nv-black">
   <%= link_to "MOVIELIST", lists_path, class: "navbar-brand" %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -9,22 +9,24 @@
       <li class="nav-item active">
         <%= link_to "Home", root_path %>
       </li>
-      <li class="nav-item">
-      </li>
-      <li class="nav-item">
+      <li class="nav-item mar-right">
 
       </li>
       <li class="nav-item">
-
+         <%= link_to "New list", new_list_path %>
       </li>
       <li class="nav-item">
-
+        <%= link_to "upload picture", "#" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "add movie", "#"  %>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0" method="get" action="search">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name= "<%= params[:name]%>" >
+    <!-- <form class="form-inline my-2 my-lg-0" method="get" action="/lists/search">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="name" value= "<%= params[:name]%>" >
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-    <%= render "shared/search" %>
+    </form> -->
+  <%= render "shared/search" %>
   </div>
+
 </nav>

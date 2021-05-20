@@ -26,7 +26,7 @@ class ListsController < ApplicationController
 
   def search
     @results = List.where('name LIKE ?', "%#{params[:name]}%")
-    @results = if params[:name].nil?
+    @results = if params[:name].empty?
                  @message = "You didn't enter anything!"
                  zero_results
                elsif @results.count.zero?
