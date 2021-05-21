@@ -1,6 +1,7 @@
 <!-- On /index.html.erb -->
 
 <%= simple_form_for(list) do |f| %>
+<%= f.input :photo, as: :file, class:  'form-control-file', label: false %>
 <%= f.input :name, input_html: {class: 'mr-sm2 round-search'}, label: false, placeholder: "Add list" %>
 <%= f.submit "Create List", class: "btn btn-primary btn-red" %>
 <% end %>

@@ -29,6 +29,9 @@ gem 'jbuilder', '~> 2.7'
 
 gem 'dotenv-rails', groups: [:development, :test]
 
+# cloudinary
+gem 'cloudinary', '~> 1.16.0'
+
 # front-end
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass', '~> 5.12.0'
