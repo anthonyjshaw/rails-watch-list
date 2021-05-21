@@ -3,8 +3,20 @@
   color: white;
 }
 
+#new_list {
+  display: flex;
+  align-items: start;
+}
+
 #new_list * {
   background: black;
-  color: white;
-  display:inline;
+
+
+}
+
+
+
+#new_list > input {
+  color:red;
+  margin-left: 8px;
 }
