@@ -15,6 +15,7 @@ class ListsController < ApplicationController
     @list = List.find(params[:id])
     @bookmark = Bookmark.new
     @comment = Comment.new
+
   end
 
   def new
