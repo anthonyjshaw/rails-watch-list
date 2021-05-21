@@ -14,8 +14,7 @@ require("channels")
 
 
 document.addEventListener("turbolinks:load", function() {
-  // changeFormClass();
-  console.log("changed!")
+
 });
 
 console.log("hello, it's working!")
