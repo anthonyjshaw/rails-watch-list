@@ -11,8 +11,10 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
+
+
 document.addEventListener("turbolinks:load", function() {
-  changeFormClass();
+  // changeFormClass();
   console.log("changed!")
 });
 

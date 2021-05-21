@@ -1,17 +1,19 @@
 
-<!-- views/shared/lists/_list_card -->
+<!-- views/shared/lists/components/_list_card -->
 <%= render "/shared/banner" %>
 
 <div class="container">
 
 <h2 class="mt-3 text-align-center">Lists</h2>
 
-<%= render "form", list: @list%>
+
+<!-- views/lists/components/_form.html.erb -->
+<%= render "lists/components/form", list: @list%>
 
 <hr>
 
-<!-- views/lists/_list_card_html.erb -->
-<%= render "list_card" %>
+<!-- views/lists/components/_list_card_html.erb -->
+<%= render "lists/components/list_card" %>
 
 
 </div>

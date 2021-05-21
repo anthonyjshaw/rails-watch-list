@@ -1,25 +1,22 @@
-<%= render "banner" %>
+<%= render "lists/components/banner" %>
 <div class="container">
-
   <h1> <%= @list.name %> </h1>
-
-<ul>
-  <% @list.movies.each do |movie| %>
-  <li>
-  <%= image_tag movie.poster_url, alt: "Movie title: #{movie.title}", class: "bookmark-img" %>
-  <%= movie.title %> |
-  <% movie.bookmarks.each do |bookmark|%>
-  <%= bookmark.comment %> |
-   <%= link_to "Delete bookmark", bookmark_path(bookmark), method: :delete %>
-  <% end %>
-  <% end %>
-  </li>
-</ul>
-
+  <ul>
+    <% @list.movies.each do |movie| %>
+      <li>
+        <%= image_tag movie.poster_url, alt: "Movie title: #{movie.title}", class: "bookmark-img" %>
+        <%= movie.title %> |
+        <% movie.bookmarks.each do |bookmark|%>
+          <%= bookmark.comment %> |
+          <%= link_to "Delete bookmark", bookmark_path(bookmark), method: :delete %>
+          <% bookmark.comments.each do |comment| %>
+          <%= comment.rating %>
+          <% end %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
   <hr>
-
-
   <h2>Add a bookmark</h2>
-
   <%= render "/bookmarks/form", list: @list, bookmark: @bookmark %>
 </div>

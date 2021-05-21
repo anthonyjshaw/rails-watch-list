@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class ListsController < ApplicationController
+
+  def about
+  end
+
   def index
     @lists = List.all
     @images = Dir.entries('app/assets/images')
@@ -10,6 +14,7 @@ class ListsController < ApplicationController
   def show
     @list = List.find(params[:id])
     @bookmark = Bookmark.new
+    @comment = Comment.new
   end
 
   def new
@@ -28,11 +33,8 @@ class ListsController < ApplicationController
   def search
     @results = List.where('name LIKE ?', "%#{params[:name]}%")
     @results = if params[:name].empty?
-                 @message = "You didn't enter anything!"
-                 zero_results
+                 empty_results
                elsif @results.count.zero?
-                 @message = "No results for #{params[:name]}."
-                 @count = 0
                  zero_results
                else
                  @count = @results.count
@@ -49,9 +51,16 @@ class ListsController < ApplicationController
 
   private
 
-  def zero_results
+  def empty_results
+    @message = "You didn't enter anything!"
     @count = 0
     []
+  end
+
+  def zero_results
+    @message = "No results for #{params[:name]}."
+    @count = 0
+    zero_results
   end
 
   def list_params
