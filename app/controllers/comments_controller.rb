@@ -10,6 +10,7 @@ class CommentsController < ApplicationController
       redirect_to list_path(@comment.bookmark.list)
     else
       render list_path(@comment.bookmark.list)
+    end
   end
 
 
