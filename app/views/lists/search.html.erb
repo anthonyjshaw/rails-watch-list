@@ -4,6 +4,16 @@
 <%= @message %>
 
 <% @results.each do |result| %>
+  <% if  %>
+    <% result.photo.attached? == false %>
+     <%= link_to list_path(result) do %>
+        <%= image_tag "https://source.unsplash.com/1600x900/?#{result.name.downcase}", alt: " List category: #{result.name}", class: 'card-img-top' %>
+    <% end %>
+    <% else %>
+    <%= link_to list_path(result) do %>
+    <%= cl_image_tag result.photo.key, class: 'card-img-top card-img', crop: :fill %>
+    <% end %>
+  <% end %>
   <%= result.name %>
 <% end %>
 

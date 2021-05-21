@@ -30,37 +30,27 @@ class ListsController < ApplicationController
     end
   end
 
-  def search
-    @results = List.where('name LIKE ?', "%#{params[:name]}%")
+   def search
+    @results = List.where('lower(name) LIKE ?', "%#{params[:name].downcase}%")
     @results = if params[:name].empty?
-                 empty_results
+                 @message = "You didn't enter anything!"
+                 zero_results
                elsif @results.count.zero?
+                 @message = "No results for #{params[:name]}."
                  zero_results
                else
                  @count = @results.count
                  @message = "Here are all the results for #{params[:name]}:"
                  List.where('name LIKE ?', "%#{params[:name]}%")
-               end
-  end
 
-  def destroy
-    @list = List.find(params[:id])
-    @list.destroy
-    redirect_to lists_path
+               end
   end
 
   private
 
-  def empty_results
-    @message = "You didn't enter anything!"
+  def zero_results
     @count = 0
     []
-  end
-
-  def zero_results
-    @message = "No results for #{params[:name]}."
-    @count = 0
-    zero_results
   end
 
   def list_params

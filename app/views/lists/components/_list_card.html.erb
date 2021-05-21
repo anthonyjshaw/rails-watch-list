@@ -3,7 +3,11 @@
     <div class="col mb-3">
       <div class="card list-card" style="width: 18rem;">
         <%= link_to list_path(list) do %>
+          <% if list.photo.attached? %>
+          <%= cl_image_tag list.photo.key, class: 'card-img-top card-img', crop: :fill %>
+          <% else %>
           <%= image_tag "https://source.unsplash.com/1600x900/?#{list.name.downcase}", alt: " List category: #{list.name}", class: 'card-img-top card-img' %>
+          <% end %>
         <% end %>
         <div class="card-body list-card-body">
         <h5 class="card-title list-card-title"><%= link_to list.name, list_path(list) %></h5>
